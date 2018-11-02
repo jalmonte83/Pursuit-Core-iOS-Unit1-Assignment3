@@ -61,13 +61,13 @@ while calculatorInUse {
     }
     switch userInputUnwrapped {
     case "1":
-        print("Do Opterations or have some fun and use a (?) as operator for guessing game")
+        print("Do an Opteration or have some fun and use a (?) as operator for guessing game")
         guard let userInputUnwrapped = readLine() else {
             continue
         }
         let componentsArray = userInputUnwrapped.components(separatedBy: " ")
         guard componentsArray.count == 3 else {
-            print("That does not compute")
+            print("Too many numbers or operators")
             continue
         }
         guard let num1 = Double(componentsArray[0]) else {
@@ -125,24 +125,24 @@ while calculatorInUse {
             
             
         default:
-            print("nope")
+            print("huh!?")
         }
         
     case "2":
-        print("choose a high order function e.g filter 1,5,2,7,3,4 by  < 4")
+        print("choose a high order function from (filter, map, reduce) e.g filter 1,5,2,7,3,4 by  < 4")
         guard let userInputUnwrapped = readLine() else {
             continue
         }
         let componentsArray = userInputUnwrapped.components(separatedBy: " ")
         guard componentsArray.count == 5 else {
-            print("That does not compute")
+            print("That does not compute. write it out like:filter 1,5,2,7,3,4 by  < 4)")
             continue
         }
         guard highOrderFuncs.contains(componentsArray[0]) else {
             print("not valid function. try again.")
             continue
         }
-        let stringNums = userInputUnwrapped.components(separatedBy: ",")
+        let stringNums = componentsArray[1].components(separatedBy: ",")
         var intNums = [Int]()
         for stringNum in stringNums {
             if let num = Int(stringNum) {
@@ -162,8 +162,8 @@ while calculatorInUse {
             print("write a valid nmuber")
             continue
         }
-        var userOperator = componentsArray[3]
-        var userHighOrderWord = componentsArray[0]
+        let userOperator = componentsArray[3]
+        let userHighOrderWord = componentsArray[0]
         switch userHighOrderWord {
         case "filter":
             if userOperator == "<" {
